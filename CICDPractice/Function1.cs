@@ -11,7 +11,7 @@ namespace CICDPractice
     public static class Function1
     {
         [FunctionName("Function1")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             log.Info("C# HTTP trigger function processed a request.");
 
@@ -28,7 +28,7 @@ namespace CICDPractice
             }
 
             return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, "Please Ogbeni,I need the name on the query string or in the request body")
+                ? req.CreateResponse(HttpStatusCode.BadRequest, "Please Ogbeni Oja,I need the name on the query string or in the request body")
                 : req.CreateResponse(HttpStatusCode.OK, "Hello Ogbeni " + name);
         }
     }
